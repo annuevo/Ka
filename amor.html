@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Un Arcoíris para Recordarte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            overflow-x: hidden;
+            background: linear-gradient(120deg,
+                    #ff9a9e 0%,
+                    #fad0c4 15%,
+                    #fbc2eb 30%,
+                    #a18cd1 45%,
+                    #84fab0 60%,
+                    #8fd3f4 75%,
+                    #fccb90 90%,
+                    #f5576c 100%);
+            background-attachment: fixed;
+        }
+
+        .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .carousel-inner {
+            height: 100vh;
+        }
+
+        .story-container {
+            position: relative;
+            z-index: 2;
+            padding: 80px 15px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            line-height: 1.8;
+        }
+
+        .story-container h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .story-container p {
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Botón Atrás -->
+    <a href="#" class="btn btn-light position-absolute m-4" style="z-index: 999;">⟵ Atrás</a>
+
+    <!-- Carrusel automático -->
+    <div id="imageCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner">
+            <div class="carousel-item active"
+                style="background-image: url('https://previews.123rf.com/images/tatianastulbo/tatianastulbo2110/tatianastulbo211000092/176416320-paparazzi-with-camera-sitting-in-ambush-in-city-park.jpg');">
+            </div>
+            <div class="carousel-item"
+                style="background-image: url('https://mott.pe/noticias/wp-content/uploads/2018/11/las-claves-para-saber-como-hacer-fotos-de-arcoiris.png');">
+            </div>
+            <div class="carousel-item"
+                style="background-image: url('https://previews.123rf.com/images/zakhariya/zakhariya2305/zakhariya230500900/205495690-super-cute-fluffy-puppy-is-sleeping-on-the-clouds-funny-little-dog-is-lying-on-a-soft-pillow-pup.jpg');">
+            </div>
+            <div class="carousel-item"
+                style="background-image: url('https://media.gq.com.mx/photos/5f44373eef6115112e88bbee/16:9/w_1920,c_limit/animes%20gore%20another.jpg');">
+            </div>
+        </div>
+    </div>
+
+    <!-- Historia -->
+    <div class="story-container">
+        <h1>Un Arcoíris para Recordarte</h1>
+        <p>
+            Haber comencemos chica jajaj había una vez un lugar donde los colores brillaban mas de lo normal, no era por
+            magia, ni brujería, sino porque ahí vivía una boxeadora llamada Katia, una chica con una risa que se
+            escuchaba hasta donde el viento ya no llegaba.
+            Yo era jhon, una persona que solo pasaba un rato por ahí todos los días sin saber que un día iba a encontrar
+            algo mas fuerte que cualquier juego de fuerza, no hablo de músculos, hablo de ti.
+            Un día nublado que parecía que iba a llover pero, se sentía cálido como si la piel quisiera salir a tomar el
+            sol pero a la vez como si tuviera frio; de esos días en el que el cielo parece que quiere sonreír, estaba
+            sentando en una banca con un perrito blanco chiquito, bien esponjoso, que se llamaba chanchilso, era mi
+            compañero de la vida, aunque este perrito no decía nada yo sentía que si, era mi GROOT peludo , aunque la
+            única palabra que decía era yo soy groot yo sentía que decía mas que eso. Cerca de nosotros había un árbol
+            viejo con mucha experiencia que solía hablar con chanchilso, se llamaba Rogelio XD y yo juraría que sonreía
+            cuando chalchilson comenzaba a correr, nose quizás también los arboles tienen la capacidad de sentir.
+            Lo mas sorprendete de ese día fue que apareció una colibrí pequeña llamada chevastian pequeñita que
+            revoloteaba nerviosa como si quisiera decirnos algo, y detrás de ella con una sonrisa grande y golpeando a
+            todo el que se apareciere en su camino apareció Katia, caminando aparentemente tranquila, con esa cara tuya
+            que hace hasta los días malos se arreglen un poco.
+            Yo la verdad no sabia si decirle algo pero chanchilson fue corriendo hacia ti como si ya te conociera desde
+            antes, tu te agaachaste y le diste cariño y ahí supe que algo extraño podría ocurrir. No todos los días una
+            chica aparece así de la nada , yo no sabia que decir porque ella sonreía pero con una mirada que tenia ganas
+            de pegarme y escuchaba pequeños murmullos donde decía “maldita rata”. Solo se que ese día no te dije nada
+            solo te sonreí, bueno medio sonreí, por que no soy bueno en eso. Pasado los días te volví a ver, y otra vez.
+            Y poco a poco me comenzaste a agarrar confianza hasta que un día me hiciste una llave de la nada y no sabia
+            que hacer.
+            Pasaron los días y empezamos a vernos más, a veces con chanchilso, aveces con Rogelio como testigo y aveces
+            solos.
+            Yo hablaba despacio, tu hablabas fuerte cuando te emocionabas, yo era muy serio, tu parecias tenerlo todo
+            claro, una vez mientras caminábamos apareció un zorro en mitad del camino, yo analice la situación y con mi
+            lógica de alguien serio pues pensé ayyy que perrigloso y tu con tu cara de que me miras simplemente lo
+            miraste como si fueras la reyna del bosque , y nose como pero el zorro se fue... esa noche comimos zorro y
+            ocurrió algo raro raro las estrellas brillaban demasiado, no como siempre, era como si cada una escribiera
+            una palabra en el cielo, yo trate de leer todas pero no pude y solo alcance a leer- te quiero mi amor, te
+            quiero muchísimo y para mi eres alguien importante!!!
+            Un día me dijiste que te sentías triste pero no lo hiciste con palabras sino que solo fue tu mirada
+            brillando, esa mirada me decía “aveces el mundo se me hace tan pesado”, y yo que no soy de muchas palabras
+            solo te abrace, y chanchilson como buen actor de reparto se sento a tu costado, la colibrí volo cerca tuyo y
+            tu de un puñete la mandaste a dormir, el árbol Rogelio dejo caer una hoja cerca a nosotros y el zorro sonrio
+            dentro de nuestros estómagos y el sol que no se quería quedar atrás rompió la nubes con un rayo de luz,
+            diciendo ya déjenme brillar y ahí sucedió lo inesperado un arcoíris gigante apareció tenia tu color favorito
+            verde aguamarina y obviamente otros colores -- - -jeje y en medio de todos ellos se formo un corazón, el
+            viento nos despeino un poco y tu sonreíste y luego me diste un puñete y dijiste esto “es perfecto” y ahí fui
+            cuando entendí que una persona seria también merece una chica alegre con una risa escandalosa con energía y
+            con mucha fuerza, aunque aveces esa fuerza me haga caer jajaja pero igual sigo ganando el lucha de brazos
+            jajajaja
+            ¡Te quiero mi amor! Katia, tú eres mi arcoíris.
+
+        </p>
+    </div>
+
+    <!-- Música de fondo automática -->
+    <div style="display: none;">
+        <iframe id="bg-music" width="0" height="0"
+            src="https://www.youtube.com/embed/qN4ooNx77u0?autoplay=1&mute=0&loop=1&playlist=qN4ooNx77u0"
+            title="Música de fondo" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.querySelector('#imageCarousel');
+            new bootstrap.Carousel(carousel, {
+                interval: 6000,
+                ride: 'carousel'
+            });
+        });
+    </script>
+
+</body>
+
+</html>
