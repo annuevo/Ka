@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marco con Corazones</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -14,22 +14,25 @@
 
     body {
       background: #fff;
-      background-image: url('marco.png'); /* tu imagen de marco */
+      background-image: url('marco.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 100px 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .image-container {
       position: relative;
-      width: 80vw;
-      max-width: 350px;
-      height: auto;
       border-radius: 15px;
       overflow: hidden;
       transition: transform 0.3s ease;
@@ -44,12 +47,7 @@
       transition: transform 0.3s ease;
     }
 
-    /* Hover efecto en escritorio */
-    .image-container:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Toque para móviles */
+    .image-container:hover img,
     .image-container:active img {
       transform: scale(1.05);
     }
@@ -79,23 +77,28 @@
     }
 
     @media screen and (max-width: 480px) {
-      .image-container {
-        width: 90vw;
+      body {
+        padding-top: 80px;
       }
     }
   </style>
 </head>
 <body>
-   <a href="index.html" class="btn btn-light" style="
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-">
-  ⟵ Atrás
-</a>
-  <div class="image-container">
-    <img src="Img/Imagen de WhatsApp 2025-07-13 a las 21.33.26_9ef38c71.jpg" alt="Imagen central">
+  <a href="index.html" class="btn btn-light position-fixed top-0 start-0 m-3" style="z-index: 999;">
+    ⭵ Atrás
+  </a>
+
+  <div class="gallery">
+    <div class="image-container">
+      <img src="Img/Imagen de WhatsApp 2025-07-13 a las 21.33.26_9ef38c71.jpg" alt="Imagen 1">
+    </div>
+    <div class="image-container">
+      <img src="Img/Imagen de WhatsApp 2025-07-13 a las 21.52.32_b663a611.jpg" alt="Imagen 2">
+    </div>
+    <div class="image-container">
+      <img src="Img/Imagen3.jpg" alt="Imagen 3">
+    </div>
+    <!-- Agrega más .image-container aquí según necesites -->
   </div>
 
   <script>
@@ -116,7 +119,5 @@
 
     setInterval(crearCorazon, 300);
   </script>
-
 </body>
 </html>
-
