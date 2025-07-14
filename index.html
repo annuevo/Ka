@@ -59,44 +59,80 @@
 
 
   <!-- Menú desplegable interactivo con íconos -->
-<div id="menu-container" style="position: fixed; top: 20px; left: 20px; z-index: 999;">
-  <button id="menu-toggle" style="padding: 10px 16px; font-size: 1.1em; background-color: #f44336; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    Historia ⮟
-  </button>
-  <div id="submenu" style="display: none; margin-top: 8px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden;">
-    <a href="#" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
-      🦇 <span>Terror</span>
-    </a>
-    <a href="amor.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
-      ❤️ <span>Amor</span>
-    </a>
-    <a href="#" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
-      🪨🪨 <span>Aventura</span>
-    </a>
-     <a href="rosa.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
-      🌹<span>Rosa</span>
-    </a>
+<!-- CONTENEDOR DE MENÚS -->
+<div style="position: fixed; top: 20px; left: 20px; display: flex; gap: 20px; z-index: 999;">
+
+  <!-- BOTÓN HISTORIA -->
+  <div id="menu-container">
+    <button id="menu-toggle" style="padding: 10px 16px; font-size: 1.1em; background-color: #f44336; color: white; border: none; border-radius: 8px; cursor: pointer;">
+      Historia ⮟
+    </button>
+    <div id="submenu" style="display: none; margin-top: 8px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; position: absolute;">
+      <a href="#" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🦇 <span>Terror</span>
+      </a>
+      <a href="amor.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        ❤️ <span>Amor</span>
+      </a>
+      <a href="#" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🪨 <span>Aventura</span>
+      </a>
+      <a href="rosa.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🌹 <span>Rosa</span>
+      </a>
+    </div>
   </div>
+
+  <!-- BOTÓN FOTOS -->
+  <div id="fotos-container">
+    <button id="fotos-toggle" style="padding: 10px 16px; font-size: 1.1em; background-color: #2196f3; color: white; border: none; border-radius: 8px; cursor: pointer;">
+      Fotos ⮟
+    </button>
+    <div id="fotos-submenu" style="display: none; margin-top: 8px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; position: absolute;">
+      <a href="cuadro.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        💖 <span>Preciosa</span>
+      </a>
+      <a href="perrito.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🐶 <span>Perrito</span>
+      </a>
+      <a href="salidas.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🌇 <span>Salidas</span>
+      </a>
+    </div>
+  </div>
+
 </div>
+
+
 
 </body>
 <script>
  // Menú interactivo desplegable
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('menu-toggle');
-  const submenu = document.getElementById('submenu');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const submenu = document.getElementById('submenu');
+    const fotosToggle = document.getElementById('fotos-toggle');
+    const fotosSubmenu = document.getElementById('fotos-submenu');
 
-  toggleBtn.addEventListener('click', () => {
-    submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
+    // Mostrar/Ocultar menú "Historia"
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      fotosSubmenu.style.display = 'none'; // Cerrar el otro menú
+    });
+
+    // Mostrar/Ocultar menú "Fotos"
+    fotosToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      fotosSubmenu.style.display = fotosSubmenu.style.display === 'block' ? 'none' : 'block';
+      submenu.style.display = 'none'; // Cerrar el otro menú
+    });
+
+    // Cerrar ambos si se hace clic fuera
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#menu-container')) submenu.style.display = 'none';
+      if (!e.target.closest('#fotos-container')) fotosSubmenu.style.display = 'none';
+    });
   });
-
-  document.addEventListener('click', (e) => {
-    if (!document.getElementById('menu-container').contains(e.target)) {
-      submenu.style.display = 'none';
-    }
-  });
-});
-
-
 </script>
 </html>
