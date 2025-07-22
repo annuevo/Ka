@@ -1,237 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicia con Amor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --verde-agua: #7ed6c1;
-      --verde-claro: #a8edea;
-      --blanco: #ffffff;
-      --sombra: rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, var(--verde-claro), var(--verde-agua));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background-color: var(--blanco);
-      width: 90%;
-      max-width: 850px;
-      display: flex;
-      flex-wrap: wrap;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px var(--sombra);
-      overflow: hidden;
-    }
-
-    .left, .right {
-      flex: 1 1 300px;
-      padding: 40px;
-    }
-
-    .left {
-      background-color: var(--verde-agua);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-    }
-
-    .left h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-
-    .left p {
-      margin-bottom: 30px;
-    }
-
-    .left button {
-      background: transparent;
-      border: 2px solid white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .left button:hover {
-      background: white;
-      color: var(--verde-agua);
-    }
-
-    .right h2 {
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-      transition: border 0.3s;
-    }
-
-    .form-group input:focus {
-      border-color: var(--verde-agua);
-    }
-
-    .login-btn {
-      width: 100%;
-      background-color: var(--verde-agua);
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .login-btn:hover {
-      background-color: #5fc4b1;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-
-    .social-icons button {
-      flex: 1;
-      margin: 0 5px;
-      padding: 10px;
-      background: none;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .social-icons button:hover {
-      border-color: var(--verde-agua);
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol de Amor Animado</title>
+    <!-- Autoría y derechos -->
+    <meta name="author" content="Zero">
+    <meta name="copyright" content="Zero - Código libre no comercial">
+    <meta name="description" content="Árbol de Amor Animado: una sorpresa interactiva y romántica para dedicar a tu pareja o ser querido. Código libre para uso personal, educativo o de inspiración.">
+    <meta name="keywords" content="amor, sorpresa, romántico, dedicatoria, animación, árbol, corazones, pareja, aniversario, regalo digital">
+    <meta name="robots" content="index, follow">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/style.mobile.css" media="only screen and (max-width: 600px)">
+    <style>
+      .tree-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        z-index: 2;
       }
-
-      .left {
-        border-radius: 20px 20px 0 0;
+      .animated-heart {
+        transform-origin: center;
+        animation: beat 1s infinite;
       }
-
-      .right {
-        border-radius: 0 0 20px 20px;
+      @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        20% { transform: scale(1.1); }
+        40% { transform: scale(0.95); }
+        60% { transform: scale(1.08); }
+        80% { transform: scale(1); }
       }
-    }
-  </style>
+      #menu-toggle:hover {
+  background-color: #d7372c;
+}
+
+#submenu a.submenu-item:hover {
+  background-color: #ffe6e6;
+  color: #e60026;
+  transform: translateX(5px);
+  font-weight: bold;
+}
+
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="left">
-      <h2>Hola, Amor Ingresa tu usuario</h2>
-      <p>Este es su espacio mágico solo para nosotros 💚</p>
-      <button onclick="alert('¡Te amo Katia! 💖')">Registrarse</button>
+    <div id="floating-objects"></div>
+    <div class="dedication-text" id="dedication-text">
+      <div class="signature" id="signature"></div>
     </div>
-    <div class="right">
-      <h2>Iniciar sesión</h2>
-      <form onsubmit="return loginUser()">
-        <div class="form-group">
-          <input type="text" placeholder="Usuario" id="usuario" required>
-        </div>
-       
-          
-            <div class="form-group" style="position: relative;">
-  <input type="password" placeholder="Contraseña" id="clave" required>
-  <button type="button" onclick="togglePassword()" 
-          style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); 
-                 background: none; border: none; cursor: pointer; font-size: 1.2em;">
-    👁️
-  </button>
-</div>
+    <div class="countdown" id="countdown"></div>
+    <div class="tree-container" id="tree-container"></div>
+    <audio src="Music/No.5 The Day I Met Her - Esther Abrami.mp3" id="bg-music" preload="auto"></audio>
+    <script src="Js/script.js"></script>
 
-        <div class="form-group" style="text-align:right; font-size: 0.9em;">
-          <a href="#">¿Olvidaste la contraseña?</a>
-        </div>
-        <button class="login-btn" type="submit">Entrar</button>
-      </form>
-      <div class="social-icons">
-        <button>G</button>
-        <button>F</button>
-        <button>♡</button>
-        <button>🌱</button>
-      </div>
+
+  <!-- Menú desplegable interactivo con íconos -->
+<!-- CONTENEDOR DE MENÚS -->
+<div style="position: fixed; top: 20px; left: 20px; display: flex; gap: 20px; z-index: 999;">
+
+  <!-- BOTÓN HISTORIA -->
+  <div id="menu-container">
+    <button id="menu-toggle" style="padding: 10px 16px; font-size: 1.1em; background-color: #f44336; color: white; border: none; border-radius: 8px; cursor: pointer;">
+      Historia ⮟
+    </button>
+    <div id="submenu" style="display: none; margin-top: 8px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; position: absolute;">
+      <a href="#" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🦇 <span>Terror</span>
+      </a>
+      <a href="amor.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        ❤️ <span>Amor</span>
+      </a>
+      <a href="#" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🪨 <span>Aventura</span>
+      </a>
+      <a href="rosa.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🌹 <span>Rosa</span>
+      </a>
     </div>
   </div>
 
- <script>
-  let intentosFallidos = 0;
+  <!-- BOTÓN FOTOS -->
+  <div id="fotos-container">
+    <button id="fotos-toggle" style="padding: 10px 16px; font-size: 1.1em; background-color: #2196f3; color: white; border: none; border-radius: 8px; cursor: pointer;">
+      Fotos ⮟
+    </button>
+    <div id="fotos-submenu" style="display: none; margin-top: 8px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; position: absolute;">
+      <a href="cuadro.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        💖 <span>Preciosa</span>
+      </a>
+      <a href="perrito.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🐶 <span>Perrito</span>
+      </a>
+      <a href="salidas.html" class="submenu-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: #333;">
+        🌇 <span>Salidassss</span>
+      </a>
+    </div>
+  </div>
 
-  const frases = [
-    "Error mi amor, vuelve a escribir la contraseña 🥺",
-    "Vamos mi vida, yo sé que tú puedes. Un intento más 💪💕",
-    "¿Qué sentiste cuando te besé por primera vez? 😘",
-    "Piensa en nuestros momentos más lindos y vuelve a intentarlo 💭❤️",
-    "Cierra los ojitos un segundo, respira hondo y vuelve a escribirlo ✨",
-    "Yo creo en ti, mi reina. Eres más que capaz 💚"
-  ];
+</div>
 
-  function loginUser() {
-    const user = document.getElementById('usuario').value.trim();
-    const pass = document.getElementById('clave').value.trim();
 
-    if (user.toLowerCase() === 'katia' && pass === 'TeAmo') {
-      alert('Bienvenida mi amor 💚');
-      window.location.href = 'index.html';
-      return false;
-    } else {
-      const mensaje = frases[intentosFallidos % frases.length];
-      alert(mensaje);
-      intentosFallidos++;
 
-      if (intentosFallidos % 4 === 0) {
-        // Bloqueo de 5 segundos
-        alert("Te amo, pero esperemos 5 segunditos para que respires profundo 🕒💚");
-        document.getElementById("boton-login").disabled = true;
-        setTimeout(() => {
-          document.getElementById("boton-login").disabled = false;
-          alert("Listo mi amor, puedes volver a intentarlo 😘");
-        }, 5000);
-      }
-
-      return false;
-    }
-  }
-  function togglePassword() {
-    const passwordInput = document.getElementById("clave");
-    const currentType = passwordInput.getAttribute("type");
-    passwordInput.setAttribute("type", currentType === "password" ? "text" : "password");
-  }
-</script>
 </body>
+<script>
+ // Menú interactivo desplegable
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const submenu = document.getElementById('submenu');
+    const fotosToggle = document.getElementById('fotos-toggle');
+    const fotosSubmenu = document.getElementById('fotos-submenu');
+
+    // Mostrar/Ocultar menú "Historia"
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      fotosSubmenu.style.display = 'none'; // Cerrar el otro menú
+    });
+
+    // Mostrar/Ocultar menú "Fotos"
+    fotosToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      fotosSubmenu.style.display = fotosSubmenu.style.display === 'block' ? 'none' : 'block';
+      submenu.style.display = 'none'; // Cerrar el otro menú
+    });
+
+    // Cerrar ambos si se hace clic fuera
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#menu-container')) submenu.style.display = 'none';
+      if (!e.target.closest('#fotos-container')) fotosSubmenu.style.display = 'none';
+    });
+  });
+</script>
 </html>
